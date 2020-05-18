@@ -1,5 +1,6 @@
 from bot import telegram_chatbot
 import gizoogle
+import json
 
 bot = telegram_chatbot("config.cfg")
 
@@ -13,6 +14,7 @@ def make_reply(msg):
 update_id = None
 while True:
     updates = bot.get_updates(offset=update_id)
+    #print(json.dumps(updates, indent=2, sort_keys=True))
     updates = updates["result"]
     if updates:
         for item in updates:
